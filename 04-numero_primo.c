@@ -14,7 +14,7 @@ int verificaPrimo (int num){
 
      for (x=2; x <=(num-1); x++){
         
-        if((num%x)==0){ // si el modulo es 0, es divisible
+        if((num % x)==0){ // si el modulo es 0, es divisible
            
            divisible =+1; 
                
