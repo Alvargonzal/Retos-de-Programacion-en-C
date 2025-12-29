@@ -1,4 +1,6 @@
-.exe
-prueba.c
-.docx
+*.exe
+**/prueba.c
+**/math.c
+*.docx
+
 
