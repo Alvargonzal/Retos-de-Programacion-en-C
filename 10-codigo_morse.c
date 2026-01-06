@@ -23,27 +23,28 @@ const char *morse_alfabeto[36] = {
         ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", 
         "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", // A-Z
         "-----", ".----", "..---", "...--", "....-", ".....", "-....", 
-        "--...", "---..", "----." // 0-9
+        "--...", "---..", "----."/* 0-9 */
 };
 
 const char alfabeto[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 
 char morseAtexto (char *cadena){
-    char buffer[4]; // Buffer para almacenar cada símbolo morse
+    char buffer[5]; // Buffer para almacenar cada símbolo morse
     int inicio_letra = 0;
     int longitud = strlen(cadena);
 
     printf("\nLa traduccion es: ");
  
     for (int i = 0; i <= longitud; i++) {
-        // Detectamos el final de una palabra (espacio, "," o fin de cadena)
-        if (isspace(cadena[i]) || cadena[i]==',' || cadena[i] == '\0') {
+        // Detectamos el final de una palabra (espacio o fin de cadena)
+        if (isspace(cadena[i]) ||  cadena[i] == '\0') {
             int largo_letra = i - inicio_letra;
 
             if (largo_letra > 0) {
+                int a_copiar = (largo_letra > 5) ? 5 : largo_letra;
                 // Copiamos la palabra al array al buffer
-                strncpy(buffer, &cadena[inicio_letra], largo_letra); // empieza donde empieza la palabra no desde en principio
+                strncpy(buffer, &cadena[inicio_letra], a_copiar); // empieza donde empieza la palabra no desde en principio
                   // de la frase
               
                 buffer[largo_letra] = '\0'; // Asegurar el cierre de la cadena
@@ -96,7 +97,7 @@ char textoAmorse (char *cadena){
 void main () {
 
     printf("\n\n --- TRADUCTOR DE CODIGO MORSE --- \n\n");
-    printf("Introduce una frase:\n ");
+    printf("Introduce una frase sin puntos ni comas:\n ");
 
     fgets(frase, sizeof(frase), stdin);
     frase[strcspn(frase, "\n")] = '\0'; // Eliminar el salto de línea de intro.
