@@ -1,6 +1,39 @@
+# Compiled object files
+*.o
+*.obj
+
+# Compiled binaries
 *.exe
-**/prueba.c
-**/math.c
+*.out
+a.out
+
+# Static / shared libs
+*.a
+*.so
+
+# Build / output directories
+build/
+bin/
+dist/
+
+# Backup and swap files
+*~
+*.swp
+*.bak
+
+# IDE / editor folders
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Office documents (if you want to ignore them)
 *.docx
+
+# Keep source files tracked: do NOT ignore .c or .h files
 
 
